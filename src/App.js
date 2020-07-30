@@ -9,15 +9,28 @@ import HookCounter4 from './components/HookCounter4';
 import ClassMouseMove from './components/ClassMouseMove';
 import HookMouseMove from './components/HookMouseMove';
 import HookMouseContainer from './components/HookMouseContainer';
+import ClassIntervalCounter from './components/ClassIntervalCounter';
+import HookIntervalCounter from './components/HookIntervalCounter';
+import HookDataFetching from './components/HookDataFetching';
+import ComponentC from './components/ComponentC';
+
+export const UserContext = React.createContext();
 
 function App() {
+
   return (
     <div className="App">
-  
-        <HookMouseContainer />
+        
+        <UserContext.Provider value={'john'}>
+            <ComponentC />
+        </UserContext.Provider>
 
         {/*
-             <HookMouseMove />
+            <HookDataFetching />
+            <HookIntervalCounter />
+            <ClassIntervalCounter />
+            <HookMouseContainer />
+            <HookMouseMove />
             <ClassMouseMove />
             <ClassCounterOne />
             <HookCounter4 />
