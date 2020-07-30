@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import './App.css';
 import ClassCounter from './components/ClassCounter';
 import ClassCounterOne from './components/ClassCounterOne';
@@ -13,19 +13,55 @@ import ClassIntervalCounter from './components/ClassIntervalCounter';
 import HookIntervalCounter from './components/HookIntervalCounter';
 import HookDataFetching from './components/HookDataFetching';
 import ComponentC from './components/ComponentC';
+import HookReducerCounterOne from './components/HookReducerCounterOne';
+import HookReducerCounterTwo from './components/HookReducerCounterTwo';
+import HookReducerCounterThree from './components/HookReducerCounterThree';
+import HookReducerComponentA from './components/HookReduceComponentA';
+import HookReducerComponentB from './components/HookReduceComponentB';
+import HookReducerComponentC from './components/HookReduceComponentC';
 
 export const UserContext = React.createContext();
+export const ReducerContext = React.createContext();
+
+const initialState = {
+    firstCounter: 0
+}
+
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'increment':
+            return {...state, firstCounter: state.firstCounter + 1 }
+            break;
+        case 'decrement':
+            return {...state, firstCounter: state.firstCounter - 1}
+            break;
+        case 'reset':
+            return initialState;
+        default:
+            return state
+    }
+}
 
 function App() {
 
+    const [count, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div className="App">
-        
-        <UserContext.Provider value={'john'}>
-            <ComponentC />
-        </UserContext.Provider>
-
+       <p>Parent Counter :  {count.firstCounter} </p>
+        <ReducerContext.Provider value={ { reducerCount: count.firstCounter, reducerDispatch: dispatch  } }>
+            <HookReducerComponentA />
+            <HookReducerComponentB />
+            <HookReducerComponentC />
+        </ReducerContext.Provider>
+       
         {/*
+            <HookReducerCounterThree />
+            <HookReducerCounterTwo />
+            <HookReducerCounterOne />
+            <UserContext.Provider value={'john'}>
+                <ComponentC />
+            </UserContext.Provider>
             <HookDataFetching />
             <HookIntervalCounter />
             <ClassIntervalCounter />
