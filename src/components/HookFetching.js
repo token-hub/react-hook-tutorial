@@ -20,8 +20,7 @@ const HookFetching = () => {
 			setPost({});
 			setError('Something went wrong');
 		})
-
-
+		
 	}, [] );
 
 	return(

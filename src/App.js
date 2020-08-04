@@ -20,6 +20,8 @@ import HookReducerComponentA from './components/HookReduceComponentA';
 import HookReducerComponentB from './components/HookReduceComponentB';
 import HookReducerComponentC from './components/HookReduceComponentC';
 import HookFetching from './components/HookFetching';
+import HookFetchingReducer from './components/HookFetchingReducer';
+import HookParentComponent from './components/HookParentComponent';
 
 export const UserContext = React.createContext();
 export const ReducerContext = React.createContext();
@@ -50,9 +52,11 @@ function App() {
   return (
     <div className="App">
         
-        <HookFetching />
+       <HookParentComponent />
        
         {/*
+            <HookFetchingReducer />
+            <HookFetching />
             <p>Parent Counter :  {count.firstCounter} </p>
             <ReducerContext.Provider value={ { reducerCount: count.firstCounter, reducerDispatch: dispatch  } }>
                 <HookReducerComponentA />
