@@ -19,43 +19,47 @@ import HookReducerCounterThree from './components/HookReducerCounterThree';
 import HookReducerComponentA from './components/HookReduceComponentA';
 import HookReducerComponentB from './components/HookReduceComponentB';
 import HookReducerComponentC from './components/HookReduceComponentC';
+import HookFetching from './components/HookFetching';
 
 export const UserContext = React.createContext();
 export const ReducerContext = React.createContext();
 
-const initialState = {
-    firstCounter: 0
-}
+// const initialState = {
+//     firstCounter: 0
+// }
 
-const reducer = (state, action) => {
-    switch(action.type) {
-        case 'increment':
-            return {...state, firstCounter: state.firstCounter + 1 }
-            break;
-        case 'decrement':
-            return {...state, firstCounter: state.firstCounter - 1}
-            break;
-        case 'reset':
-            return initialState;
-        default:
-            return state
-    }
-}
+// const reducer = (state, action) => {
+//     switch(action.type) {
+//         case 'increment':
+//             return {...state, firstCounter: state.firstCounter + 1 }
+//             break;
+//         case 'decrement':
+//             return {...state, firstCounter: state.firstCounter - 1}
+//             break;
+//         case 'reset':
+//             return initialState;
+//         default:
+//             return state
+//     }
+// }
 
 function App() {
 
-    const [count, dispatch] = useReducer(reducer, initialState);
+    // const [count, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div className="App">
-       <p>Parent Counter :  {count.firstCounter} </p>
-        <ReducerContext.Provider value={ { reducerCount: count.firstCounter, reducerDispatch: dispatch  } }>
-            <HookReducerComponentA />
-            <HookReducerComponentB />
-            <HookReducerComponentC />
-        </ReducerContext.Provider>
+        
+        <HookFetching />
        
         {/*
+            <p>Parent Counter :  {count.firstCounter} </p>
+            <ReducerContext.Provider value={ { reducerCount: count.firstCounter, reducerDispatch: dispatch  } }>
+                <HookReducerComponentA />
+                <HookReducerComponentB />
+                <HookReducerComponentC />
+            </ReducerContext.Provider>
+
             <HookReducerCounterThree />
             <HookReducerCounterTwo />
             <HookReducerCounterOne />
