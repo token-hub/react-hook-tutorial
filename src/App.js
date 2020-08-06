@@ -23,6 +23,9 @@ import HookFetching from './components/HookFetching';
 import HookFetchingReducer from './components/HookFetchingReducer';
 import HookParentComponent from './components/HookParentComponent';
 import HookCounterMemo from './components/HookCounterMemo';
+import HookRefInput from './components/HookRefInput';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
 
 export const UserContext = React.createContext();
 export const ReducerContext = React.createContext();
@@ -53,10 +56,15 @@ function App() {
   return (
     <div className="App">
         
-        <HookCounterMemo />
-       
-       
+       <HookTimer />
+        
+        {/* ----- [ React Ref hook ] -----
+            <HookRefInput />
+            <ClassTimer />
+        */}
+
         {/*
+            <HookCounterMemo />
             <HookParentComponent />
             <HookFetchingReducer />
             <HookFetching />
