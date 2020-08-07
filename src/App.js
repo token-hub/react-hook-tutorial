@@ -26,6 +26,9 @@ import HookCounterMemo from './components/HookCounterMemo';
 import HookRefInput from './components/HookRefInput';
 import ClassTimer from './components/ClassTimer';
 import HookTimer from './components/HookTimer';
+import HookCustomHook from './components/HookCustomHook';
+import HookCustomCounter from './components/HookCustomCounter';
+import HookUserForm from './components/HookUserForm';
 
 export const UserContext = React.createContext();
 export const ReducerContext = React.createContext();
@@ -56,9 +59,17 @@ function App() {
   return (
     <div className="App">
         
-       <HookTimer />
+        <HookUserForm />
+
+        {/* ----- [ React Custom Hook ] -----
+             <HookUserForm />
+             <HookCustomCounter />
+             <HookCustomHook />
+             <HookCustomCounter/>
+        */}
         
         {/* ----- [ React Ref hook ] -----
+            <HookTimer />
             <HookRefInput />
             <ClassTimer />
         */}
